@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMDigital | Marketing Digital</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Paleta de colores basada en Violeta */
+        :root {
+            --bg-dark: #0a0514;
+            --violet-primary: #7c3aed;
+            --violet-secondary: #5b21b6;
+            --violet-light: #a78bfa;
+            --card-bg: #160d2b;
+            --text-white: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--violet-light);
+        }
+
+        .logo span {
+            color: white;
+            font-weight: 300;
+        }
+
+        .tagline {
+            color: var(--violet-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* SECCIÓN PLANES */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* TARJETAS DE PLANES (Estilo Referencia) */
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #2e1a4d;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.02);
+            border-color: var(--violet-primary);
+        }
+
+        .card-header {
+            background: var(--violet-primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .price-box {
+            text-align: right;
+        }
+
+        .price-pesos { font-size: 1.4rem; font-weight: 700; display: block; }
+        .price-usd { font-size: 1.1rem; color: var(--violet-light); display: block; }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            margin-right: 15px;
+            color: var(--violet-light);
+            font-weight: bold;
+            background: rgba(124, 58, 237, 0.2);
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .card-footer-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* BOTONES WHATSAPP */
+        .btn-ws {
+            display: block;
+            background: #25d366; /* Verde original de WS para que se reconozca */
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-ws:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-bottom: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .card-header { flex-direction: column; text-align: center; gap: 10px; }
+            .price-box { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="tagline">Transformamos marcas</span>
+        <div class="logo">CM<span>Digital</span></div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Planes a la medida</h2>
+
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>Contenido</h3>
+                <div class="price-box">
+                    <span class="price-pesos">$95.000</span>
+                    <span class="price-usd">68 USD</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="feature-list">
+                    <li>8 Post Mensuales</li>
+                    <li>5 Reels Mensuales</li>
+                    <li>5 Días de Historias por semana</li>
+                </ul>
+                <p class="card-footer-text">Planificamos, diseñamos y subimos tu contenido.</p>
+                <a href="https://wa.me/5491165146831?text=Hola,%20quiero%20el%20paquete%20Contenido" class="btn-ws">Pedir Plan Contenido</a>
+            </div>
+        </div>
+
+        <div class="pricing-card" style="border-color: var(--violet-light);">
+            <div class="card-header" style="background: var(--violet-secondary);">
+                <h3>Publicidad + Contenido</h3>
+                <div class="price-box">
+                    <span class="price-pesos">$700.000</span>
+                    <span class="price-usd">500 USD <small>+ Inversión</small></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="feature-list">
+                    <li>Edición de videos e imágenes</li>
+                    <li>Planificación mensual de contenido</li>
+                    <li>Correlación entre contenido orgánico y publicidad</li>
+                </ul>
+                <p class="card-footer-text">Organizamos todo lo necesario para mejorar tu negocio.</p>
+                <a href="https://wa.me/5491165146831?text=Hola,%20quiero%20el%20paquete%20Publicidad%20y%20Contenido" class="btn-ws">Pedir Plan Full</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CMDigital | Powered by <strong>LADev Hosting</strong></p>
+    </footer>
+
+</body>
+</html>
