@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> AgathaStudios | Propuesta Digital  2026</title>
+    <title>Agatha Studios | Propuesta Digital 2026</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -68,7 +68,6 @@
             opacity: 0.8;
         }
 
-        /* CONTENEDOR DE PLANES */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -94,7 +93,6 @@
             font-weight: 300;
         }
 
-        /* TARJETAS */
         .pricing-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -112,7 +110,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* Destacar Plan Growth */
         .featured {
             border: 2px solid var(--violet-primary);
             transform: scale(1.05);
@@ -177,7 +174,7 @@
             margin-bottom: 1rem;
             display: flex;
             align-items: flex-start;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .feature-list li::before {
@@ -189,13 +186,12 @@
         }
 
         .plan-description {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #94a3b8;
             margin-bottom: 1.5rem;
             font-style: italic;
         }
 
-        /* BOTONES */
         .btn-ws {
             display: block;
             background: var(--violet-primary);
@@ -221,22 +217,34 @@
             background: #1eb959;
         }
 
-        /* FOOTER & NOTAS */
         .extra-services {
-            max-width: 800px;
+            max-width: 850px;
             margin: 4rem 2rem;
-            padding: 2rem;
+            padding: 2.5rem;
             background: rgba(255,255,255,0.03);
             border-radius: 20px;
             width: 90%;
+            border: 1px solid #2e1a4d;
         }
 
-        .extra-services h4 { margin-bottom: 1rem; color: var(--violet-light); }
+        .extra-services h4 { margin-bottom: 1.5rem; color: var(--violet-light); text-transform: uppercase; letter-spacing: 1px; }
+        
         .grid-extras {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
             font-size: 0.9rem;
+        }
+
+        .notes {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2e1a4d;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
         }
 
         footer {
@@ -245,6 +253,7 @@
             text-align: center;
             width: 100%;
             background: #05020a;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
@@ -256,12 +265,12 @@
 <body>
 
     <header>
-        <span class="tagline">Estrategia, Contenido y Ads</span>
+        <span class="tagline">Community Manager, Estrategia & Ads</span>
         <div class="logo">Agatha <span>Studios</span></div>
     </header>
 
     <h2 class="section-title">Propuesta Integral 2026</h2>
-    <p class="section-subtitle">Soluciones reales para el crecimiento de tu marca</p>
+    <p class="section-subtitle">Gestión profesional de redes sociales a elección</p>
 
     <div class="container">
         
@@ -274,21 +283,22 @@
                 </div>
             </div>
             <div class="card-body">
-                <p class="plan-description">Ideal para profesionalizar tu imagen y tener constancia.</p>
+                <p class="plan-description">Identidad y Presencia: Ideal para profesionalizar tu imagen.</p>
                 <ul class="feature-list">
                     <li>Social Media Plan + Buyer Persona</li>
-                    <li>Gestión de 1 Red Social</li>
-                    <li>8 Post Mensuales (Flyers/Carruseles)</li>
-                    <li>Calendario de Contenidos</li>
-                    <li>Optimización de Perfil</li>
+                    <li><strong>1 Red Social a elección</strong></li>
+                    <li>8 piezas gráficas (Flyers/Carruseles)</li>
+                    <li>Calendario de Contenidos mensual</li>
+                    <li>Creación de 1 álbum (10 fotos/videos con marca de agua)</li>
+                    <li>Optimización de perfiles</li>
                     <li>Atención de mensajes y comentarios</li>
                 </ul>
-                <a href="https://wa.me/5491136438243?text=Hola%20Aldana!%20Me%20interesa%20el%20Plan%20START" class="btn-ws">Elegir Plan Start</a>
+                <a href="https://wa.me/5491136438243?text=Hola%20Agatha%20Studios!%20Me%20interesa%20el%20Plan%20START" class="btn-ws">Elegir Plan Start</a>
             </div>
         </div>
 
         <div class="pricing-card featured">
-            <div class="badge">Recomendado</div>
+            <div class="badge">Más Elegido</div>
             <div class="card-header">
                 <h3>Growth</h3>
                 <div class="price-box">
@@ -297,16 +307,17 @@
                 </div>
             </div>
             <div class="card-body">
-                <p class="plan-description">Visibilidad real y captación de clientes activos.</p>
+                <p class="plan-description">Crecimiento & Meta Ads: Visibilidad real y clientes activos.</p>
                 <ul class="feature-list">
-                    <li>Gestión de 2 Redes Sociales</li>
-                    <li>12 Publicaciones (Mix Reels/Video/Flyer)</li>
-                    <li><strong>Publicidad Meta Ads (FB/IG)</strong></li>
-                    <li>Configuración WhatsApp Business</li>
-                    <li>1 Envío de Email Marketing</li>
-                    <li>Informe Mensual de Métricas</li>
+                    <li><strong>2 Redes Sociales a elección</strong></li>
+                    <li>12 publicaciones (Mix Reels, Videos y Flyers)</li>
+                    <li>Calendario estratégico de posteos e historias</li>
+                    <li><strong>Publicidad Meta Ads (Gestión de pauta)</strong></li>
+                    <li>Atención Total + Configuración WA Business</li>
+                    <li>1 envío de Email Marketing estratégico</li>
+                    <li>Informe mensual de métricas y KPIs</li>
                 </ul>
-                <a href="https://wa.me/5491136438243?text=Hola%20Aldana!%20Quiero%20el%20Plan%20GROWTH" class="btn-ws btn-growth">Elegir Plan Growth</a>
+                <a href="https://wa.me/5491136438243?text=Hola%20Agatha%20Studios!%20Quiero%20el%20Plan%20GROWTH" class="btn-ws btn-growth">Elegir Plan Growth</a>
             </div>
         </div>
 
@@ -319,16 +330,17 @@
                 </div>
             </div>
             <div class="card-body">
-                <p class="plan-description">Estrategia total para dominar tu nicho.</p>
+                <p class="plan-description">Estrategia 360°: Dominio total de tu nicho digital.</p>
                 <ul class="feature-list">
-                    <li>Gestión de hasta 3 Redes Sociales</li>
-                    <li>20 Piezas (Edición Video Avanzada)</li>
-                    <li><strong>Full Ads: Meta + Google Ads</strong></li>
-                    <li>Diseño Gráfico Extra (Folletos/Logos)</li>
+                    <li><strong>Hasta 3 redes sociales</strong></li>
+                    <li>20 piezas mensuales (Edición avanzada)</li>
+                    <li><strong>Full Ads: Meta Ads + Google Ads (Search/YT)</strong></li>
+                    <li>Diseño Gráfico Extra (Folletos/Logos/Tarjetas)</li>
                     <li>Email Marketing Semanal</li>
-                    <li>Informe Quincenal de Resultados</li>
+                    <li>Plan de Marketing 360° + Optimización CV</li>
+                    <li>Informe quincenal de resultados</li>
                 </ul>
-                <a href="https://wa.me/5491136438243?text=Hola%20Aldana!%20Busco%20el%20Plan%20PERFORMANCE%20360" class="btn-ws">Elegir Plan Performance</a>
+                <a href="https://wa.me/5491136438243?text=Hola%20Agatha%20Studios!%20Busco%20el%20Plan%20PERFORMANCE%20360" class="btn-ws">Elegir Plan Performance</a>
             </div>
         </div>
 
@@ -337,19 +349,21 @@
     <div class="extra-services">
         <h4>Servicios Especiales (Unidad)</h4>
         <div class="grid-extras">
-            <div>• Flyer Individual: <strong>$23.000</strong></div>
-            <div>• Identidad Visual: <strong>$180.000</strong></div>
-            <div>• Optimización CV: <strong>$45.000</strong></div>
-            <div>• Repost de Terceros: <strong>$15.200</strong></div>
+            <div>• Flyer individual: <br><strong>$23.000</strong></div>
+            <div>• Identidad Visual (Logo): <br><strong>Desde $180.000</strong></div>
+            <div>• Optimización de CV: <br><strong>$45.000</strong></div>
+            <div>• Repost de terceros: <br><strong>$15.200</strong></div>
         </div>
-        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid #2e1a4d;">
-        <p style="font-size: 0.8rem; opacity: 0.7;">
-            * Inversión en Ads a cargo del cliente. Contrato mín. 3 meses para resultados óptimos. Pago: 50% adelanto / 50% día 15.
-        </p>
+        
+        <div class="notes">
+            <span><strong>Contrato:</strong> Mín. 3 a 6 meses para resultados óptimos.</span>
+            <span><strong>Ads:</strong> Inversión en plataformas a cargo del cliente.</span>
+            <span><strong>Pago:</strong> 50% adelanto / 50% día 15 del servicio.</span>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 AgathaStudios | Powered by <strong>LADev Hosting</strong></p>
+        <p>&copy; 2026 Agatha Studios | Powered by <strong>LADev Hosting</strong></p>
     </footer>
 
 </body>
