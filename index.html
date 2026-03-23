@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMDigital | Marketing Digital</title>
+    <title>CMDigital | Propuesta Integral 2026</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Paleta de colores basada en Violeta */
         :root {
             --bg-dark: #0a0514;
             --violet-primary: #7c3aed;
@@ -17,6 +16,7 @@
             --violet-light: #a78bfa;
             --card-bg: #160d2b;
             --text-white: #f8fafc;
+            --accent-green: #25d366;
         }
 
         * {
@@ -36,12 +36,12 @@
         }
 
         header {
-            padding: 3rem 1rem;
+            padding: 4rem 1rem 2rem;
             text-align: center;
         }
 
         .logo {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -1px;
             color: var(--violet-light);
@@ -55,65 +55,111 @@
         .tagline {
             color: var(--violet-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
             margin-bottom: 0.5rem;
             display: block;
+            opacity: 0.8;
         }
 
-        /* SECCIÓN PLANES */
+        /* CONTENEDOR DE PLANES */
         .container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             padding: 2rem;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            grid-column: 1 / -1;
         }
 
-        /* TARJETAS DE PLANES (Estilo Referencia) */
+        .section-subtitle {
+            text-align: center;
+            color: var(--violet-light);
+            margin-bottom: 3rem;
+            grid-column: 1 / -1;
+            font-weight: 300;
+        }
+
+        /* TARJETAS */
         .pricing-card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
             border: 1px solid #2e1a4d;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
         .pricing-card:hover {
-            transform: scale(1.02);
+            transform: translateY(-10px);
             border-color: var(--violet-primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Destacar Plan Growth */
+        .featured {
+            border: 2px solid var(--violet-primary);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--violet-primary);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
         .card-header {
-            background: var(--violet-primary);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: rgba(124, 58, 237, 0.1);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #2e1a4d;
         }
 
         .card-header h3 {
             text-transform: uppercase;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--violet-light);
         }
 
         .price-box {
-            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .price-pesos { font-size: 1.4rem; font-weight: 700; display: block; }
-        .price-usd { font-size: 1.1rem; color: var(--violet-light); display: block; }
+        .price-pesos { 
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            color: #fff;
+        }
+        
+        .price-period {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
 
         .card-body {
             padding: 2rem;
+            flex-grow: 1;
         }
 
         .feature-list {
@@ -122,113 +168,178 @@
         }
 
         .feature-list li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             display: flex;
-            align-items: center;
-            font-size: 1rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
         }
 
         .feature-list li::before {
             content: '✓';
-            margin-right: 15px;
-            color: var(--violet-light);
+            margin-right: 12px;
+            color: var(--accent-green);
             font-weight: bold;
-            background: rgba(124, 58, 237, 0.2);
-            width: 25px;
-            height: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            min-width: 20px;
         }
 
-        .card-footer-text {
-            text-align: center;
-            font-size: 0.9rem;
+        .plan-description {
+            font-size: 0.85rem;
             color: #94a3b8;
             margin-bottom: 1.5rem;
+            font-style: italic;
         }
 
-        /* BOTONES WHATSAPP */
+        /* BOTONES */
         .btn-ws {
             display: block;
-            background: #25d366; /* Verde original de WS para que se reconozca */
+            background: var(--violet-primary);
             color: white;
             text-align: center;
-            padding: 1rem;
-            border-radius: 12px;
+            padding: 1.2rem;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 700;
             transition: 0.3s;
+            margin-top: auto;
         }
 
         .btn-ws:hover {
-            background: #128c7e;
-            transform: translateY(-2px);
+            background: var(--violet-secondary);
+            transform: scale(1.02);
+        }
+
+        .btn-growth {
+            background: var(--accent-green);
+        }
+        .btn-growth:hover {
+            background: #1eb959;
+        }
+
+        /* FOOTER & NOTAS */
+        .extra-services {
+            max-width: 800px;
+            margin: 4rem 2rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            width: 90%;
+        }
+
+        .extra-services h4 { margin-bottom: 1rem; color: var(--violet-light); }
+        .grid-extras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            font-size: 0.9rem;
         }
 
         footer {
-            margin-top: 4rem;
-            padding-bottom: 3rem;
+            margin-top: 2rem;
+            padding: 3rem;
             text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.6;
+            width: 100%;
+            background: #05020a;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .card-header { flex-direction: column; text-align: center; gap: 10px; }
-            .price-box { text-align: center; }
+            .featured { transform: scale(1); margin: 1rem 0; }
+            .container { padding: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <span class="tagline">Transformamos marcas</span>
+        <span class="tagline">Estrategia, Contenido y Ads</span>
         <div class="logo">CM<span>Digital</span></div>
     </header>
 
+    <h2 class="section-title">Propuesta Integral 2026</h2>
+    <p class="section-subtitle">Soluciones reales para el crecimiento de tu marca</p>
+
     <div class="container">
-        <h2 class="section-title">Planes a la medida</h2>
+        
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>Start</h3>
+                <div class="price-box">
+                    <span class="price-pesos">$280.000</span>
+                    <span class="price-period">Mensual</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="plan-description">Ideal para profesionalizar tu imagen y tener constancia.</p>
+                <ul class="feature-list">
+                    <li>Social Media Plan + Buyer Persona</li>
+                    <li>Gestión de 1 Red Social</li>
+                    <li>8 Post Mensuales (Flyers/Carruseles)</li>
+                    <li>Calendario de Contenidos</li>
+                    <li>Optimización de Perfil</li>
+                    <li>Atención de mensajes y comentarios</li>
+                </ul>
+                <a href="https://wa.me/5491165146831?text=Hola!%20Me%20interesa%20el%20Plan%20START" class="btn-ws">Elegir Plan Start</a>
+            </div>
+        </div>
+
+        <div class="pricing-card featured">
+            <div class="badge">Recomendado</div>
+            <div class="card-header">
+                <h3>Growth</h3>
+                <div class="price-box">
+                    <span class="price-pesos">$460.000</span>
+                    <span class="price-period">Mensual</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="plan-description">Visibilidad real y captación de clientes activos.</p>
+                <ul class="feature-list">
+                    <li>Gestión de 2 Redes Sociales</li>
+                    <li>12 Publicaciones (Mix Reels/Video/Flyer)</li>
+                    <li><strong>Publicidad Meta Ads (FB/IG)</strong></li>
+                    <li>Configuración WhatsApp Business</li>
+                    <li>1 Envío de Email Marketing</li>
+                    <li>Informe Mensual de Métricas</li>
+                </ul>
+                <a href="https://wa.me/5491165146831?text=Hola!%20Quiero%20el%20Plan%20GROWTH" class="btn-ws btn-growth">Elegir Plan Growth</a>
+            </div>
+        </div>
 
         <div class="pricing-card">
             <div class="card-header">
-                <h3>Contenido</h3>
+                <h3>Performance</h3>
                 <div class="price-box">
-                    <span class="price-pesos">$95.000</span>
-                    <span class="price-usd">68 USD</span>
+                    <span class="price-pesos">$690.000</span>
+                    <span class="price-period">Mensual +</span>
                 </div>
             </div>
             <div class="card-body">
+                <p class="plan-description">Estrategia total para dominar tu nicho.</p>
                 <ul class="feature-list">
-                    <li>8 Post Mensuales</li>
-                    <li>5 Reels Mensuales</li>
-                    <li>5 Días de Historias por semana</li>
+                    <li>Gestión de hasta 3 Redes Sociales</li>
+                    <li>20 Piezas (Edición Video Avanzada)</li>
+                    <li><strong>Full Ads: Meta + Google Ads</strong></li>
+                    <li>Diseño Gráfico Extra (Folletos/Logos)</li>
+                    <li>Email Marketing Semanal</li>
+                    <li>Informe Quincenal de Resultados</li>
                 </ul>
-                <p class="card-footer-text">Planificamos, diseñamos y subimos tu contenido.</p>
-                <a href="https://wa.me/5491165146831?text=Hola,%20quiero%20el%20paquete%20Contenido" class="btn-ws">Pedir Plan Contenido</a>
+                <a href="https://wa.me/5491165146831?text=Hola!%20Busco%20el%20Plan%20PERFORMANCE%20360" class="btn-ws">Elegir Plan Performance</a>
             </div>
         </div>
 
-        <div class="pricing-card" style="border-color: var(--violet-light);">
-            <div class="card-header" style="background: var(--violet-secondary);">
-                <h3>Publicidad + Contenido</h3>
-                <div class="price-box">
-                    <span class="price-pesos">$700.000</span>
-                    <span class="price-usd">500 USD <small>+ Inversión</small></span>
-                </div>
-            </div>
-            <div class="card-body">
-                <ul class="feature-list">
-                    <li>Edición de videos e imágenes</li>
-                    <li>Planificación mensual de contenido</li>
-                    <li>Correlación entre contenido orgánico y publicidad</li>
-                </ul>
-                <p class="card-footer-text">Organizamos todo lo necesario para mejorar tu negocio.</p>
-                <a href="https://wa.me/5491165146831?text=Hola,%20quiero%20el%20paquete%20Publicidad%20y%20Contenido" class="btn-ws">Pedir Plan Full</a>
-            </div>
+    </div>
+
+    <div class="extra-services">
+        <h4>Servicios Especiales (Unidad)</h4>
+        <div class="grid-extras">
+            <div>• Flyer Individual: <strong>$23.000</strong></div>
+            <div>• Identidad Visual: <strong>$180.000</strong></div>
+            <div>• Optimización CV: <strong>$45.000</strong></div>
+            <div>• Repost de Terceros: <strong>$15.200</strong></div>
         </div>
+        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid #2e1a4d;">
+        <p style="font-size: 0.8rem; opacity: 0.7;">
+            * Inversión en Ads a cargo del cliente. Contrato mín. 3 meses para resultados óptimos. Pago: 50% adelanto / 50% día 15.
+        </p>
     </div>
 
     <footer>
