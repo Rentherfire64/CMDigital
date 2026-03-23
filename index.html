@@ -25,6 +25,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,13 +35,57 @@
             min-height: 100vh;
         }
 
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 2, 10, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-logo span { color: var(--violet-light); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--violet-light);
+        }
+
         /* --- FONDO ANIMADO --- */
         .background-blob {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             background: radial-gradient(circle at 50% 50%, #160d2b 0%, #05020a 100%);
-            overflow: hidden;
         }
 
         .blob {
@@ -49,8 +94,8 @@
             background: var(--violet-primary);
             filter: blur(150px);
             border-radius: 50%;
-            opacity: 0.15;
-            animation: move 20s infinite alternate;
+            opacity: 0.12;
+            animation: move 25s infinite alternate;
         }
 
         @keyframes move {
@@ -58,74 +103,64 @@
             to { transform: translate(110%, 110%); }
         }
 
-        /* --- HEADER & LOGO --- */
-        header {
-            padding: 6rem 1rem 3rem;
-            text-align: center;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .logo {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -2px;
-            color: #fff;
-            position: relative;
-            display: inline-block;
-        }
-
-        .logo span {
-            color: var(--violet-light);
-            display: block;
-            font-size: 0.35em;
-            letter-spacing: 10px;
-            font-weight: 300;
-            text-transform: uppercase;
-            margin-top: 5px;
-            text-shadow: 0 0 15px var(--violet-primary);
-        }
-
-        .tagline {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 0.75rem;
-            color: var(--violet-light);
-            margin-bottom: 1.5rem;
-            display: block;
-            opacity: 0.8;
-        }
-
-        /* --- GRID DE PLANES --- */
-        .container {
-            width: 100%;
+        /* --- SECCIONES --- */
+        section {
+            padding: 100px 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+        }
+
+        header {
+            padding: 180px 1rem 100px;
+            text-align: center;
+        }
+
+        .logo-hero {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
+
+        .logo-hero span {
+            display: block;
+            font-size: 0.3em;
+            letter-spacing: 12px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: var(--violet-light);
+            margin-top: 10px;
+        }
+
+        /* --- NOSOTROS --- */
+        #nosotros {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50px;
+            margin-bottom: 50px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        /* --- GRID DE SERVICIOS --- */
+        .container-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
+            margin-top: 3rem;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding: 0 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #fff, var(--violet-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* --- TARJETAS ELITE --- */
         .pricing-card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -134,7 +169,7 @@
             padding: 3rem 2rem;
             display: flex;
             flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
             position: relative;
         }
 
@@ -144,68 +179,13 @@
             box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
         }
 
-        .featured {
-            border: 1px solid var(--violet-primary);
-            background: rgba(30, 16, 62, 0.7);
-        }
+        .featured { border: 1px solid var(--violet-primary); background: rgba(30, 16, 62, 0.7); }
 
-        .featured::before {
-            content: "RECOMENDADO";
-            position: absolute;
-            top: -15px; left: 50%;
-            transform: translateX(-50%);
-            background: var(--violet-primary);
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
+        .price-pesos { font-size: 2.8rem; font-weight: 800; display: block; margin: 1rem 0; }
 
-        .card-header h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .price-box {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .price-pesos {
-            font-size: 3rem;
-            font-weight: 800;
-            display: block;
-        }
-
-        .price-period {
-            font-size: 0.85rem;
-            color: var(--violet-light);
-            text-transform: uppercase;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-bottom: 2.5rem;
-            flex-grow: 1;
-        }
-
-        .feature-list li {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            color: #d1d5db;
-        }
-
-        .feature-list li::before {
-            content: "✔";
-            color: var(--accent-green);
-            margin-right: 12px;
-            font-weight: bold;
-        }
+        .feature-list { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
+        .feature-list li { margin-bottom: 1rem; font-size: 0.9rem; display: flex; align-items: center; opacity: 0.9; }
+        .feature-list li::before { content: "✦"; color: var(--violet-light); margin-right: 12px; }
 
         /* --- BOTONES --- */
         .btn-ws {
@@ -214,75 +194,53 @@
             color: white;
             text-align: center;
             padding: 1.2rem;
-            border-radius: 18px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: 700;
             border: 1px solid var(--violet-primary);
             transition: 0.3s;
         }
 
-        .btn-ws:hover {
-            background: var(--violet-primary);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
-        }
+        .btn-ws:hover { background: var(--violet-primary); box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); }
 
-        .btn-featured {
-            background: var(--violet-primary);
-        }
+        .btn-featured { background: var(--violet-primary); border: none; }
 
-        /* --- SERVICIOS EXTRA --- */
-        .extra-services {
-            max-width: 900px;
-            margin: 5rem auto;
-            padding: 3rem;
-            background: rgba(255,255,255,0.02);
-            border-radius: 40px;
-            border: 1px solid var(--glass-border);
+        /* --- CONTACTO --- */
+        #contacto {
             text-align: center;
+            padding-bottom: 150px;
         }
 
-        .extra-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2.5rem;
-        }
-
-        .extra-box {
-            background: rgba(0,0,0,0.3);
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .extra-box span {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 800;
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             color: var(--violet-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: 0.3s;
+            border: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            border-radius: 50px;
         }
 
-        .footer-notes {
-            margin-top: 3rem;
-            font-size: 0.75rem;
-            opacity: 0.5;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+        .social-link:hover {
+            background: var(--violet-primary);
+            color: white;
         }
 
         footer {
             padding: 4rem 1rem;
             text-align: center;
-            background: rgba(0,0,0,0.4);
-            font-size: 0.85rem;
+            background: rgba(0,0,0,0.6);
             border-top: 1px solid var(--glass-border);
         }
 
         @media (max-width: 768px) {
-            .container { padding: 1rem; }
-            .pricing-card { margin: 0 10px; }
+            .nav-links { display: none; } /* En móvil se oculta para simplicidad */
+            .logo-hero { font-size: 3rem; }
+            section { padding: 60px 1.5rem; }
         }
     </style>
 </head>
@@ -293,101 +251,97 @@
         <div class="blob" style="animation-delay: -5s; left: 60%; top: 20%;"></div>
     </div>
 
-    <header>
-        <span class="tagline">Community Manager • Estrategia • Ads</span>
-        <div class="logo">Agatha <span>Studios</span></div>
+    <nav>
+        <a href="#" class="nav-logo">Agatha<span>Studios</span></a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio">
+        <span style="letter-spacing: 5px; text-transform: uppercase; color: var(--violet-light); font-size: 0.8rem;">Community Manager • Estrategia • Ads</span>
+        <h1 class="logo-hero">Agatha <span>Studios</span></h1>
     </header>
 
-    <div class="section-header">
-        <h1 class="section-title">Propuesta Integral 2026</h1>
-        <p style="opacity: 0.7; margin-top: 10px;">Transformando marcas con impacto digital</p>
-    </div>
+    <section id="nosotros">
+        <div class="about-content">
+            <h2 style="font-size: 2.5rem; font-weight: 800;">Nosotros</h2>
+            <p>
+                En <strong>Agatha Studios</strong>, no solo gestionamos redes, transformamos visiones en impacto digital real. 
+                Nacimos con el objetivo de elevar el estándar estético y estratégico de las marcas en Argentina, combinando creatividad de vanguardia con análisis de datos para 2026.
+            </p>
+        </div>
+    </section>
 
-    <div class="container">
-        
-        <div class="pricing-card">
-            <div class="card-header">
+    <section id="servicios">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="font-size: 2.5rem; font-weight: 800;">Propuesta Integral 2026</h2>
+            <p style="opacity: 0.6;">Soluciones escalables para cada etapa de tu negocio</p>
+        </div>
+
+        <div class="container-grid">
+            <div class="pricing-card">
                 <h3>Start</h3>
-                <div class="price-box">
-                    <span class="price-pesos">$280.000</span>
-                    <span class="price-period">Mensual</span>
-                </div>
-            </div>
-            <div class="card-body">
+                <span class="price-pesos">$280.000</span>
                 <ul class="feature-list">
                     <li>Social Media Plan + Buyer Persona</li>
                     <li><strong>1 Red Social a elección</strong></li>
-                    <li>8 piezas gráficas (Flyers/Carruseles)</li>
-                    <li>Calendario de Contenidos</li>
-                    <li>Álbum de 10 fotos con marca de agua</li>
-                    <li>Optimización de perfiles</li>
+                    <li>8 piezas gráficas mensuales</li>
+                    <li>Calendario de Contenidos organizado</li>
+                    <li>Álbum de 10 fotos (Marca de agua)</li>
                     <li>Atención de mensajes y comentarios</li>
                 </ul>
-                <a href="https://wa.me/5491136438243?text=Hola%20Agatha%20Studios!%20Me%20interesa%20el%20Plan%20START" class="btn-ws">Elegir Start</a>
+                <a href="https://wa.me/5491136438243?text=Hola!%20Me%20interesa%20el%20Plan%20START" class="btn-ws">Elegir Plan</a>
             </div>
-        </div>
 
-        <div class="pricing-card featured">
-            <div class="card-header">
+            <div class="pricing-card featured">
                 <h3>Growth</h3>
-                <div class="price-box">
-                    <span class="price-pesos">$460.000</span>
-                    <span class="price-period">Mensual</span>
-                </div>
-            </div>
-            <div class="card-body">
+                <span class="price-pesos">$460.000</span>
                 <ul class="feature-list">
                     <li><strong>2 Redes Sociales a elección</strong></li>
-                    <li>12 publicaciones (Mix Reels/Video/Flyer)</li>
+                    <li>12 publicaciones (Mix Reels/Flyers)</li>
                     <li>Gestión estratégica de historias</li>
                     <li><strong>Publicidad Meta Ads (FB/IG)</strong></li>
                     <li>Configuración WhatsApp Business</li>
-                    <li>1 envío de Email Marketing</li>
                     <li>Informe mensual de métricas</li>
                 </ul>
-                <a href="https://wa.me/5491136438243?text=Hola%20Agatha%20Studios!%20Quiero%20el%20Plan%20GROWTH" class="btn-ws btn-featured">Elegir Growth</a>
+                <a href="https://wa.me/5491136438243?text=Hola!%20Quiero%20el%20Plan%20GROWTH" class="btn-ws btn-featured">Más Elegido</a>
             </div>
-        </div>
 
-        <div class="pricing-card">
-            <div class="card-header">
+            <div class="pricing-card">
                 <h3>Performance</h3>
-                <div class="price-box">
-                    <span class="price-pesos">$690.000</span>
-                    <span class="price-period">Mensual +</span>
-                </div>
-            </div>
-            <div class="card-body">
+                <span class="price-pesos">$690.000</span>
                 <ul class="feature-list">
                     <li><strong>Hasta 3 redes sociales</strong></li>
-                    <li>20 piezas (Edición avanzada video)</li>
+                    <li>20 piezas (Edición avanzada)</li>
                     <li><strong>Meta Ads + Google Ads (Full)</strong></li>
                     <li>Search, Display y YouTube Ads</li>
-                    <li>Diseño Gráfico (Folletos/Tarjetas/Logos)</li>
+                    <li>Diseño Gráfico (Folletos/Logos)</li>
                     <li>Email Marketing Semanal</li>
-                    <li>Optimización de CV Profesional</li>
                 </ul>
-                <a href="https://wa.me/5491136438243?text=Hola%20Agatha%20Studios!%20Busco%20el%20Plan%20PERFORMANCE%20360" class="btn-ws">Elegir Performance</a>
+                <a href="https://wa.me/5491136438243?text=Hola!%20Busco%20el%20Plan%20PERFORMANCE" class="btn-ws">Elegir Plan</a>
             </div>
         </div>
+    </section>
 
-    </div>
-
-    <div class="extra-services">
-        <h2 style="font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Servicios Especiales</h2>
-        <div class="extra-grid">
-            <div class="extra-box">Flyer Individual <span>$23.000</span></div>
-            <div class="extra-box">Identidad Visual <span>$180.000</span></div>
-            <div class="extra-box">Optimización CV <span>$45.000</span></div>
-            <div class="extra-box">Repost Terceros <span>$15.200</span></div>
-        </div>
+    <section id="contacto">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">¿Listo para despegar?</h2>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">Contáctanos directamente o síguenos en nuestras redes.</p>
         
-        <div class="footer-notes">
-            <span><strong>Contrato:</strong> Mín. 3-6 meses</span>
-            <span><strong>Ads:</strong> Inversión por cuenta del cliente</span>
-            <span><strong>Pago:</strong> 50% adelanto / 50% día 15</span>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://wa.me/5491136438243" class="social-link">WhatsApp Directo</a>
+            <a href="https://www.instagram.com/agathastudios/" class="social-link" target="_blank">Instagram @agathastudios</a>
         </div>
-    </div>
+
+        <div style="margin-top: 4rem; font-size: 0.8rem; opacity: 0.5; display: flex; justify-content: center; gap: 30px;">
+            <p>Contrato: 3-6 meses</p>
+            <p>Pago: 50% adelanto / 50% día 15</p>
+            <p>Ads: Inversión por cliente</p>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 Agatha Studios | Transformando visiones en impacto digital</p>
