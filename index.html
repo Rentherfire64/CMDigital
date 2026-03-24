@@ -56,6 +56,7 @@
             letter-spacing: 1px;
             color: #fff;
             text-decoration: none;
+            z-index: 1002; /* Para que quede sobre el menú móvil */
         }
 
         .nav-logo span { color: var(--violet-light); }
@@ -78,6 +79,23 @@
         .nav-links a:hover {
             opacity: 1;
             color: var(--violet-light);
+        }
+
+        /* --- HAMBURGUESA --- */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+            border-radius: 2px;
         }
 
         /* --- FONDO ANIMADO --- */
@@ -237,8 +255,42 @@
             border-top: 1px solid var(--glass-border);
         }
 
+        /* --- RESPONSIVE OPTIMIZADO --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* En móvil se oculta para simplicidad */
+            .menu-toggle {
+                display: flex;
+            }
+
+            /* Animación de la hamburguesa a X */
+            .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+            .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                flex-direction: column;
+                background: rgba(10, 5, 20, 0.98);
+                backdrop-filter: blur(20px);
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                transition: 0.4s ease-in-out;
+                justify-content: center;
+                gap: 2.5rem;
+                z-index: 1001;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+                opacity: 1;
+            }
+
             .logo-hero { font-size: 3rem; }
             section { padding: 60px 1.5rem; }
         }
@@ -253,6 +305,13 @@
 
     <nav>
         <a href="#" class="nav-logo">Agatha<span>Studios</span></a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
@@ -336,7 +395,7 @@
             <a href="https://www.instagram.com/agathastudios/" class="social-link" target="_blank">Instagram @agathastudios</a>
         </div>
 
-        <div style="margin-top: 4rem; font-size: 0.8rem; opacity: 0.5; display: flex; justify-content: center; gap: 30px;">
+        <div style="margin-top: 4rem; font-size: 0.8rem; opacity: 0.5; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
             <p>Contrato: 3-6 meses</p>
             <p>Pago: 50% adelanto / 50% día 15</p>
             <p>Ads: Inversión por cliente</p>
@@ -346,12 +405,32 @@
     <footer>
         <p>&copy; 2026 Agatha Studios | Transformando visiones en impacto digital</p>
         <p style="opacity: 0.6; font-size: 0.75rem; margin-top: 20px; letter-spacing: 1px;">
-    Powered by 
-    <a href="https://ladevhosting.com.ar/" target="_blank" style="color: var(--violet-light); text-decoration: none; font-weight: 800; border-bottom: 1px solid var(--violet-primary); padding-bottom: 2px; transition: 0.3s;">
-        LADev Hosting
-    </a>
-</p>
+        Powered by 
+        <a href="https://ladevhosting.com.ar/" target="_blank" style="color: var(--violet-light); text-decoration: none; font-weight: 800; border-bottom: 1px solid var(--violet-primary); padding-bottom: 2px; transition: 0.3s;">
+            LADev Hosting
+        </a>
+    </p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links a');
+
+        // Función para alternar el menú
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar el menú al hacer clic en un enlace
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
