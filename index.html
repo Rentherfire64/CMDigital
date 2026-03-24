@@ -230,18 +230,18 @@
         }
 
         .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--violet-light);
-            text-decoration: none;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            transition: 0.3s;
-            border: 1px solid var(--glass-border);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-        }
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--violet-light);
+    text-decoration: none;
+    font-size: 1rem; /* Bajamos de 1.2 a 1rem para que quepan mejor */
+    transition: 0.3s;
+    border: 1px solid var(--glass-border);
+    padding: 0.8rem 1.5rem; /* Un poco más compacto */
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05); /* Un toque de fondo para que resalten */
+}
 
         .social-link:hover {
             background: var(--violet-primary);
@@ -387,20 +387,25 @@
     </section>
 
     <section id="contacto">
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">¿Listo para despegar?</h2>
-        <p style="opacity: 0.7; margin-bottom: 2rem;">Contáctanos directamente o síguenos en nuestras redes.</p>
+    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">¿Listo para despegar?</h2>
+    <p style="opacity: 0.7; margin-bottom: 2rem;">Contáctanos directamente o síguenos en nuestras redes.</p>
+    
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="https://wa.me/5491136438243" class="social-link">WhatsApp</a>
         
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="https://wa.me/5491136438243" class="social-link">WhatsApp Directo</a>
-            <a href="https://www.instagram.com/agathastudios/" class="social-link" target="_blank">Instagram @agathastudios</a>
-        </div>
+        <a href="https://www.instagram.com/agathastudios/" class="social-link" target="_blank">Instagram</a>
+        
+        <a href="https://www.facebook.com/share/1FkrbuQjHd/" class="social-link" target="_blank">Facebook</a>
+        
+        <a href="mailto:agathastudio25@gmail.com" class="social-link">agathastudio25@gmail.com</a>
+    </div>
 
-        <div style="margin-top: 4rem; font-size: 0.8rem; opacity: 0.5; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-            <p>Contrato: 3-6 meses</p>
-            <p>Pago: 50% adelanto / 50% día 15</p>
-            <p>Ads: Inversión por cliente</p>
-        </div>
-    </section>
+    <div style="margin-top: 4rem; font-size: 0.8rem; opacity: 0.5; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+        <p>Contrato: 3-6 meses</p>
+        <p>Pago: 50% adelanto / 50% día 15</p>
+        <p>Ads: Inversión por cliente</p>
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2026 Agatha Studios | Transformando visiones en impacto digital</p>
